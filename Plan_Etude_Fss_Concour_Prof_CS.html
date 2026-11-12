@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="fr" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan d'Étude Académique - Cartographie</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Roboto+Mono:wght@400;500&display=swap');
+
+        :root {
+            --bg-page: #f4f6f8;
+            --text-main: #2c3e50;
+            --phase-1-color: #2980b9;
+            --phase-2-color: #d35400;
+            --phase-3-color: #27ae60;
+            --phase-4-color: #8e44ad;
+            --border-color: #e0e6ed;
+            --link-bg: #ffffff;
+            --link-hover: #f0f4f8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            padding: 40px 20px;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .page-header h1 {
+            font-size: 2.2rem;
+            color: #1a252f;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+        }
+
+        /* Phase Containers */
+        .phase-container {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            margin-bottom: 30px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        .phase-header {
+            padding: 15px 25px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .phase-header h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .phase-header .fr-title {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        .phase-1 .phase-header { background-color: var(--phase-1-color); }
+        .phase-2 .phase-header { background-color: var(--phase-2-color); }
+        .phase-3 .phase-header { background-color: var(--phase-3-color); }
+        .phase-4 .phase-header { background-color: var(--phase-4-color); }
+
+        .phase-body {
+            padding: 25px;
+        }
+
+        /* Horizontal Modules */
+        .modules-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        .module-pill {
+            background-color: #f8f9fa;
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #34495e;
+        }
+
+        /* Links Grid */
+        .links-section-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #95a5a6;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            direction: ltr; /* Keep label English/French LTR */
+            text-align: left;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 12px;
+        }
+
+        .drive-link {
+            display: flex;
+            align-items: center;
+            background: var(--link-bg);
+            border: 1px solid var(--border-color);
+            padding: 10px 15px;
+            border-radius: 6px;
+            text-decoration: none;
+            color: #34495e;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            direction: ltr; /* Force LTR for paths */
+            text-align: left;
+            word-break: break-all;
+        }
+
+        .drive-link::before {
+            content: "📁";
+            margin-right: 10px;
+            font-size: 1.1rem;
+        }
+
+        .drive-link:hover {
+            background: var(--link-hover);
+            border-color: #bdc3c7;
+            color: #000;
+        }
+
+        /* Path Highlighting */
+        .path-root { color: #e74c3c; font-weight: 500; }
+        .path-sub { color: #7f8c8d; }
+        .path-target { color: #2c3e50; font-weight: 700; }
+
+        @media (max-width: 768px) {
+            .phase-header { flex-direction: column; align-items: flex-start; gap: 5px; }
+            .links-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="page-header">
+        <h1>Plan d'Étude Académique</h1>
+        <p>Cartographie des ressources Google Drive par module (Cliquez sur un lien pour l'ouvrir)</p>
+    </div>
+
+    <!-- PHASE 1 -->
+    <div class="phase-container phase-1">
+        <div class="phase-header">
+            <h2>المرحلة الأولى: تأسيس المفاهيم الأساسية</h2>
+            <span class="fr-title">Phase 1 : Fondations</span>
+        </div>
+        <div class="phase-body">
+            <div class="modules-row">
+                <span class="module-pill">مدخل إلى الإعلامية</span>
+                <span class="module-pill">تمثيل المعلومات ووحدات القياس</span>
+                <span class="module-pill">أنظمة الترميز</span>
+                <span class="module-pill">المنطق والبوابات المنطقية</span>
+            </div>
+            <div class="links-section-title">Ressources disponibles (Drive)</div>
+            <div class="links-grid">
+                <a href="https://drive.google.com/drive/folders/19gixlQfGvZj86OzupwUeVfRrBwb7dY-K?usp=drive_link" target="_blank" class="drive-link">
+                    <span><span class="path-root">A</span> <span class="path-sub">></span> <span class="path-sub">S1</span> <span class="path-sub">></span> <span class="path-target">Systèmes logiques & Architecture</span></span>
+                </a>
+                <a href="https://drive.google.com/drive/folders/19gixlQfGvZj86OzupwUeVfRrBwb7dY-K?usp=drive_link" target="_blank" class="drive-link">
+                    <span><span class="path-root">A</span> <span class="path-sub">></span> <span class="path-sub">S1</span> <span class="path-sub">></span> <span class="path-target">Logique formelle</span></span>
+                </a>
+                <a href="https://drive.google.com/drive/folders/19gixlQfGvZj86OzupwUeVfRrBwb7dY-K?usp=drive_link" target="_blank" class="drive-link">
+                    <span><span class="path-root">A</span> <span class="path-sub">></span> <span class="path-sub">S1</span> <span class="path-sub">></span> <span class="path-target">Technologies Multimédias</span></span>
+                </a>
+                <a href="https://drive.google.com/drive/folders/1hZ9ZIGoUACJfk4Ur7YqPVpDsElLb-lcg?usp=drive_link" target="_blank" class="drive-link">
+                    <span><span class="path-root">LSI</span> <span class="path-sub">></span> <span class="path-sub">S1</span> <span class="path-sub">></span> <span class="path-target">TD architecture Des ordinateurs</span></span>
+                </a>
+                <a href="https://drive.google.com/drive/folders/1hZ9ZIGoUACJfk4Ur7YqPVpDsElLb-lcg?usp=drive_link" target="_blank" class="drive-link">
+                    <span><span class="path-root">LSI</span> <span class="path-sub">></span> <span class="path-sub">S1</span> <span class="path-sub">></span> <span class="path-target">TD système logique</span></span>
+                </a>
+                <a href="https://drive.google.com/drive/folders/1hZ9ZIGoUACJfk4Ur7YqPVpDsElLb-lcg?usp=drive_link" target="_blank" class="drive-link">
+                    <span><span class="path-root">LSI</span> <span class="path-sub">></span> <span class="path-sub">S1</span> <span class="path-sub">></span> <span class="path-target">TD logique Formelle</span></span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- PHASE 2 -->
+    <div class="phase-container phase-2">
+        <div class="phase-header">
+            <h2>المرحلة الثانية: بنية الحاسوب ونظم التشغيل</h2>
+            <span class="fr-title">Phase 2 : Architecture & OS</span>
+        </div>
+        <div class="phase-body">
+            <div class="modules-row">
+                <span class="module-pill">معمارية الحاسوب (C, CI, C)</span>
+                <span class="module-pill">دورة تنفيذ التعليمة</span>
+                <span class="module-pill">نظم التشغيل: المفاهيم والوظائف</span>
+                <span class="module-pill">إدارة العمليات والذاكرة والملفات</span>
+            </div>
+            <div class="links-section-title">Ressources disponibles (Drive)</div>
+            <div class="links-grid">
+                <a href="https://drive.google.com/drive/folders/19gixlQfGvZj86OzupwUeVfRrBwb7dY-K?usp=drive_link" target="_blank" class="drive-link">
+                    <span><span class="path-root">A</span> <span class="path-sub">></span> <span class="path-sub">S1</span> <span class="path-sub">></span> <span class="path-target">Systèmes logiques & Architecture</span></span>
+                </a>
+                <a href="https://drive.google.com/drive/folders/1hZ9ZIGoUACJfk4Ur7YqPVpDsElLb-lcg?usp=drive_link" target="_blank" class="drive-link">
+                    <span><span class="path-root">LSI</span> <span class="path-sub">></span> <span class="path-sub">S1</span> <span class="path-sub">></span> <span class="path-target">TD architecture Des ordinateurs</span></span>
+                </a>
+                <a href="https://drive.google.com/drive/folders/19gixlQfGvZj86OzupwUeVfRrBwb7dY-K?usp=drive_link" target="_blank" class="drive-link">
+                    <span><span class="path-root">A</span> <span class="path-sub">></span> <span class="path-sub">S1</span> <span class="path-sub">></span> <span class="path-target">Système d'exploitation</span></span>
+                </a>
+                <a href="https://drive.google.com/drive/folders/1-v9wDqMNn7d_b6rM9TvnnD60yHobGNjS?usp=drive_link" target="_blank" class="drive-link">
+                    <span><span class="path-root">A</span> <span class="path-sub">></span> <span class="path-sub">S2</span> <span class="path-sub">></span> <span class="path-target">Système d'exploitation</span></span>
+                </a>
+                <a href="https://drive.google.com/drive/folders/11ojOZcbBAEMvOuLeOiUurXaHUiXZUdwY?usp=drive_link" target="_blank" class="drive-link">
+                    <span><span class="path-root">LSI</span> <span class="path-sub">></span> <span class="path-sub">S2</span> <span class="path-sub">></span> <span class="path-target">Système d'exploitation</span></span>
+                </a>
+                <a href="https://drive.google.com/drive/folders/1hZ9ZIGoUACJfk4Ur7YqPVpDsElLb-lcg?usp=drive_link" target="_blank" class="drive-link">
+                    <span><span class="path-root">LSI</span> <span class="path-sub">></span> <span class="path-sub">S1</span> <span class="path-sub">></span> <span class="path-target">Système d'exploitation</span></span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- PHASE 3 -->
+    <div class="phase-container phase-3">
+        <div class="phase-header">
+            <h2>المرحلة الثالثة: الخوارزميات والبرمجة</h2>
+            <span class="fr-title">Phase 3 : Algorithmes & Programmation</span>
+        </div>
+        <div class="phase-body">
+            <div class="modules-row">
+                <span class="module-pill">المفاهيم الأساسية للخوارزميات</span>
+                <span class="module-pill">المتغيرات، الشروط، الحلقات</span>
+                <span class="module-pill">الجداول والسلاسل والدوال</span>
+                <span class="module-pill">خوارزميات البحث والترتيب</span>
+                <span class="module-pill">تحليل التعقيد</span>
+                <span class="module-pill">تطبيقات وتمارين</span>
+            </div>
+            <div class="links-section-title">Ressources disponibles (Drive)</div>
+            <div class="links-grid">
+                <!-- Algorithmique -->
+                <a href="https://drive.google.com/drive/folders/19gixlQfGvZj86OzupwUeVfRrBwb7dY-K?usp=drive_link" target="_blank" class="drive-link">
+                    <span><span class="path-root">A</span> <span class="path-sub">></span> <span class="path-sub">S1</span> <span class="path-sub">></span> <span class="path-target">Algorithmique et structure de données</span></span>
+                </a>
+                <a href="https://drive.google.com/drive/folders/1-v9wDqMNn7d_b6rM9TvnnD60yHobGNjS?usp=drive_link" target="_blank" class="drive-link">
+                    <span><span class="path-root">A</span> <span class="path-sub">></span> <span class="path-sub">S2</span> <span class="path-sub">></span> <span class="path-target">Algorithmiques et structures de données</span></span>
+                </a>
+                <a href="https://drive.google.com/drive/folders/1NNBXVpQj05YQcolpyd7QC5jg3C6ShqNQ?usp=drive_link" target="_blank" class="drive-link">
+                    <span><span class="path-root">A & B</span> <span class="path-sub">></span> <span class="path-sub">S1</span> <span class="path-sub">></span> <span class="path-target">ASD</span></span>
+                </a>
+                <a href="https://drive.google.com/drive/folders/1pKKHiDWEFSHTGMRitI7cnsN6CgRCMloP?usp=drive_link" target="_blank" class="drive-link">
+                    <span><span class="path-root">A & B</span> <span class="path-sub">></span> <span class="path-sub">S2</span> <span class="path-sub">></span> <span class="path-target">Algo</span></span>
+                </a>
+                <a href="https://drive.google.com/drive/folders/1PHqB98K3RlQJpglNE_En_4dm8BeHJ2cM?usp=drive_link" target="_blank" class="drive-link">
+                    <span><span class="path-root">LSI 2</span> <span class="path-sub">></span> <span class="path-sub">S1</span> <span class="path-sub">></span> <span class="path-target">ASD</span></span>
+                </a>
+                <a href="https://drive.google.com/drive/folders/11ojOZcbBAEMvOuLeOiUurXaHUiXZUdwY?usp=drive_link" target="_blank" class="drive-link">
+                    <span><span class="path-root">LSI</span> <span class="path-sub">></span> <span class="path-sub">S2</span> <span class="path-sub">></span> <span class="path-target">Algorithme</span></span>
+                </a>
+                <a href="https://drive.google.com/drive/folders/1hZ9ZIGoUACJfk4Ur7YqPVpDsElLb-lcg?usp=drive_link" target="_blank" class="drive-link">
+                    <span><span class="path-root">LSI</span> <span class="path-sub">></span> <span class="path-sub">S1</span> <span class="path-sub">></span> <span class="path-target">TD Algorithme</span></span>
+                </a>
+                <a href="https://drive.google.com/drive/folders/11ojOZcbBAEMvOuLeOiUurXaHUiXZUdwY?usp=drive_link" target="_blank" class="drive-link">
+                    <span><span class="path-root">LSI</span> <span class="path-sub">></span> <span class="path-sub">S2</span> <span class="path-sub">></span> <span class="path-target">TD algorithme</span></span>
+                </a>
+                <a href="https://drive.google.com/drive/folders/11ZxnqbvTZZquU_q7bkbelcLOxO6H5fpx?usp=drive_link" target="_blank" class="drive-link">
+                    <span><span class="path-root">LSI 2</span> <span class="path-sub">></span> <span class="path-sub">S2</span> <span class="path-sub">></span> <span class="path-target">Algo numérique</span></span>
+                </a>
+
+                <!-- Programming -->
+                <a href="https://drive.google.com/drive/folders/19gixlQfGvZj86OzupwUeVfRrBwb7dY-K?usp=drive_link" target="_blank" class="drive-link">
+                    <span><span class="path-root">A</span> <span class="path-sub">></span> <span class="path-sub">S1</span> <span class="path-sub">></span> <span class="path-target">Atelier programmation "C"</span></span>
+                </a>
+                <a href="https://drive.google.com/drive/folders/1-v9wDqMNn7d_b6rM9TvnnD60yHobGNjS?usp=drive_link" target="_blank" class="drive-link">
+                    <span><span class="path-root">A</span> <span class="path-sub">></span> <span class="path-sub">S2</span> <span class="path-sub">></span> <span class="path-target">Atelier de programmation 2</span></span>
+                </a>
+                <a href="https://drive.google.com/drive/folders/11ojOZcbBAEMvOuLeOiUurXaHUiXZUdwY?usp=drive_link" target="_blank" class="drive-link">
+                    <span><span class="path-root">LSI</span> <span class="path-sub">></span> <span class="path-sub">S2</span> <span class="path-sub">></span> <span class="path-target">Atelier programmation</span></span>
+                </a>
+                <a href="https://drive.google.com/drive/folders/1hZ9ZIGoUACJfk4Ur7YqPVpDsElLb-lcg?usp=drive_link" target="_blank" class="drive-link">
+                    <span><span class="path-root">LSI</span> <span class="path-sub">></span> <span class="path-sub">S1</span> <span class="path-sub">></span> <span class="path-target">Language c</span></span>
+                </a>
+                <a href="https://drive.google.com/drive/folders/11ojOZcbBAEMvOuLeOiUurXaHUiXZUdwY?usp=drive_link" target="_blank" class="drive-link">
+                    <span><span class="path-root">LSI</span> <span class="path-sub">></span> <span class="path-sub">S2</span> <span class="path-sub">></span> <span class="path-target">TP languages C</span></span>
+                </a>
+                <a href="https://drive.google.com/drive/folders/1-v9wDqMNn7d_b6rM9TvnnD60yHobGNjS?usp=drive_link" target="_blank" class="drive-link">
+                    <span><span class="path-root">A</span> <span class="path-sub">></span> <span class="path-sub">S2</span> <span class="path-sub">></span> <span class="path-target">Programmation Python</span></span>
+                </a>
+                <a href="https://drive.google.com/drive/folders/1NNBXVpQj05YQcolpyd7QC5jg3C6ShqNQ?usp=drive_link" target="_blank" class="drive-link">
+                    <span><span class="path-root">A & B</span> <span class="path-sub">></span> <span class="path-sub">S1</span> <span class="path-sub">></span> <span class="path-target">Java</span></span>
+                </a>
+                <a href="https://drive.google.com/drive/folders/1PHqB98K3RlQJpglNE_En_4dm8BeHJ2cM?usp=drive_link" target="_blank" class="drive-link">
+                    <span><span class="path-root">LSI 2</span> <span class="path-sub">></span> <span class="path-sub">S1</span> <span class="path-sub">></span> <span class="path-target">Java</span></span>
+                </a>
+
+                <!-- Exams -->
+                <a href="https://drive.google.com/drive/folders/11ojOZcbBAEMvOuLeOiUurXaHUiXZUdwY?usp=drive_link" target="_blank" class="drive-link">
+                    <span><span class="path-root">LSI</span> <span class="path-sub">></span> <span class="path-sub">S2</span> <span class="path-sub">></span> <span class="path-target">examens.pdf</span></span>
+                </a>
+                <a href="https://drive.google.com/drive/folders/1PHqB98K3RlQJpglNE_En_4dm8BeHJ2cM?usp=drive_link" target="_blank" class="drive-link">
+                    <span><span class="path-root">LSI 2</span> <span class="path-sub">></span> <span class="path-sub">S1</span> <span class="path-sub">></span> <span class="path-target">Exams</span></span>
+                </a>
+                <a href="https://drive.google.com/drive/folders/11ZxnqbvTZZquU_q7bkbelcLOxO6H5fpx?usp=drive_link" target="_blank" class="drive-link">
+                    <span><span class="path-root">LSI 2</span> <span class="path-sub">></span> <span class="path-sub">S2</span> <span class="path-sub">></span> <span class="path-target">Examens</span></span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- PHASE 4 -->
+    <div class="phase-container phase-4">
+        <div class="phase-header">
+            <h2>المرحلة الرابعة: قواعد البيانات و SQL</h2>
+            <span class="fr-title">Phase 4 : Bases de Données & SQL</span>
+        </div>
+        <div class="phase-body">
+            <div class="modules-row">
+                <span class="module-pill">مفهوم قاعدة البيانات والنموذج العلاقي</span>
+                <span class="module-pill">المفاتيح والعلاقات</span>
+                <span class="module-pill">لغة SQL (SELECT, INSERT...)</span>
+                <span class="module-pill">شروط، تجميع، والربط</span>
+                <span class="module-pill">تمارين تطبيقية</span>
+            </div>
+            <div class="links-section-title">Ressources disponibles (Drive)</div>
+            <div class="links-grid">
+                <a href="https://drive.google.com/drive/folders/1-v9wDqMNn7d_b6rM9TvnnD60yHobGNjS?usp=drive_link" target="_blank" class="drive-link">
+                    <span><span class="path-root">A</span> <span class="path-sub">></span> <span class="path-sub">S2</span> <span class="path-sub">></span> <span class="path-target">BD</span></span>
+                </a>
+                <a href="https://drive.google.com/drive/folders/1NNBXVpQj05YQcolpyd7QC5jg3C6ShqNQ?usp=drive_link" target="_blank" class="drive-link">
+                    <span><span class="path-root">A & B</span> <span class="path-sub">></span> <span class="path-sub">S1</span> <span class="path-sub">></span> <span class="path-target">BD</span></span>
+                </a>
+                <a href="https://drive.google.com/drive/folders/1PHqB98K3RlQJpglNE_En_4dm8BeHJ2cM?usp=drive_link" target="_blank" class="drive-link">
+                    <span><span class="path-root">LSI 2</span> <span class="path-sub">></span> <span class="path-sub">S1</span> <span class="path-sub">></span> <span class="path-target">BD</span></span>
+                </a>
+                <a href="https://drive.google.com/drive/folders/11ojOZcbBAEMvOuLeOiUurXaHUiXZUdwY?usp=drive_link" target="_blank" class="drive-link">
+                    <span><span class="path-root">LSI</span> <span class="path-sub">></span> <span class="path-sub">S2</span> <span class="path-sub">></span> <span class="path-target">Base de données</span></span>
+                </a>
+                <a href="https://drive.google.com/drive/folders/1pKKHiDWEFSHTGMRitI7cnsN6CgRCMloP?usp=drive_link" target="_blank" class="drive-link">
+                    <span><span class="path-root">A & B</span> <span class="path-sub">></span> <span class="path-sub">S2</span> <span class="path-sub">></span> <span class="path-target">Administration BD</span></span>
+                </a>
+                <a href="https://drive.google.com/drive/folders/11ZxnqbvTZZquU_q7bkbelcLOxO6H5fpx?usp=drive_link" target="_blank" class="drive-link">
+                    <span><span class="path-root">LSI 2</span> <span class="path-sub">></span> <span class="path-sub">S2</span> <span class="path-sub">></span> <span class="path-target">Administration BD</span></span>
+                </a>
+                <a href="https://drive.google.com/drive/folders/1pKKHiDWEFSHTGMRitI7cnsN6CgRCMloP?usp=drive_link" target="_blank" class="drive-link">
+                    <span><span class="path-root">A & B</span> <span class="path-sub">></span> <span class="path-sub">S2</span> <span class="path-sub">></span> <span class="path-target">entrepôts de données</span></span>
+                </a>
+                <a href="https://drive.google.com/drive/folders/11ZxnqbvTZZquU_q7bkbelcLOxO6H5fpx?usp=drive_link" target="_blank" class="drive-link">
+                    <span><span class="path-root">LSI 2</span> <span class="path-sub">></span> <span class="path-sub">S2</span> <span class="path-sub">></span> <span class="path-target">Entrepôts de données</span></span>
+                </a>
+                <a href="https://drive.google.com/drive/folders/11ZxnqbvTZZquU_q7bkbelcLOxO6H5fpx?usp=drive_link" target="_blank" class="drive-link">
+                    <span><span class="path-root">LSI 2</span> <span class="path-sub">></span> <span class="path-sub">S2</span> <span class="path-sub">></span> <span class="path-target">Examens</span></span>
+                </a>
+                <a href="https://drive.google.com/drive/folders/1PHqB98K3RlQJpglNE_En_4dm8BeHJ2cM?usp=drive_link" target="_blank" class="drive-link">
+                    <span><span class="path-root">LSI 2</span> <span class="path-sub">></span> <span class="path-sub">S1</span> <span class="path-sub">></span> <span class="path-target">Exams</span></span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
